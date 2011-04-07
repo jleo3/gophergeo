@@ -1,0 +1,35 @@
+<%= form_for(@location) do |f| %>
+  <% if @location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% @location.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  Enter the latitude, longitude, and specifics of the place you'd like to inspect:<br>
+  <table>
+    <tr>
+      <td>Latitude:</td>
+      <td><%= f.text_field :lat, :size => 30 %></td>
+    </tr><br>
+    <tr>
+      <td>Longitude:</td>
+      <td><%= f.text_field :long, :size => 30 %></td>
+    </tr>
+    <tr>
+      <td>Refine your search:</td>
+      <td><%= select_tag :search_type, nil %></td>
+      <td><%= select_tag :search_category, nil, :disabled => 'disabled' %></td>
+      <td><%= select_tag :search_subcategory, nil, :disabled => 'disabled' %></td>
+    </tr>
+
+  </table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

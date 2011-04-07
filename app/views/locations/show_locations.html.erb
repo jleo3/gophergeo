@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'New Search', locations_path %><br><br>
+
+Your search returned the following results and are now in your database:<br>
+
+<table>
+  <tr>
+    <td>COMPANY NAME</td>
+    <td>ADDRESS</td>
+    <td>CITY</td>
+    <td>TYPE</td>
+    <td>CATEGORY</td>
+    <td>SUBCATEGORY</td>
+  </tr>
+  <% @locations.each do |location| %>
+    <tr>
+      <td><%= location.name %></td>
+      <td><%= location.address %></td>
+      <td><%= location.city %></td>
+      <td><%= location.category_type %></td>
+      <td><%= location.category %></td>
+      <td><%= location.subcategory %></td>
+    </tr>
+  <% end %>
+</table>
